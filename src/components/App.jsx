@@ -3,20 +3,6 @@ import Cards from "./CardsContainer";
 import Footer from "./Footer";
 import styled from "styled-components";
 
-
-export default function App() {
-  return (
-    <>
-      <Header>
-        <img src="src/assets/logo.png" alt="zap logo" />
-        <h1>ZapRecall</h1>
-      </Header>
-      <Cards />
-      <Footer />
-    </>
-  );
-}
-
 const Header = styled.div`
   width: 100%;
   height: 125px;
@@ -34,3 +20,18 @@ const Header = styled.div`
     height: 60px;
   }
 `;
+
+export default function App() {
+  return (
+    <>
+      <Header>
+        <img src="src/assets/logo.png" alt="zap logo" />
+        <h1>ZapRecall</h1>
+      </Header>
+      <Cards />
+      <Footer />
+    </>
+  );
+}
+
+

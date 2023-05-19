@@ -14,8 +14,8 @@ const CardContainer = styled.div`
 export default function Cards() {
   return (
     <CardContainer>
-      {cardArray.map((card,index) => (
-        <Card key={card.question} card={card} index={index} />
+      {cardArray.map((card, index) => (
+        <Card key={card.question} card={card} index={index+1} />
       ))}
     </CardContainer>
   );
