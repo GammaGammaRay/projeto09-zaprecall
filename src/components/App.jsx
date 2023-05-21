@@ -22,16 +22,24 @@ const Header = styled.div`
 `;
 
 export default function App() {
+  const [answerCt, setAnswerCt] = useState(0);
+  const [result, setResult] = useState([]);
+
   return (
     <>
       <Header>
         <img src="src/assets/logo.png" alt="zap logo" />
         <h1>ZapRecall</h1>
       </Header>
-      <Cards />
-      <Footer />
+      <Cards
+        setAnswerCt={setAnswerCt}
+        answerCt={answerCt}
+        result={result}
+        setResult={setResult}
+      />
+      <Footer answerCt={answerCt} />
     </>
   );
 }
 
-
+function updateResults() {}

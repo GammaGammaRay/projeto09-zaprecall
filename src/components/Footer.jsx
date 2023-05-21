@@ -5,6 +5,7 @@ const FooterContainer = styled.div`
   position: fixed;
   max-width: 1280px;
   width: 100%;
+  max-width: 600px;
   height: 75px;
   line-height: 75px;
   bottom: 0px;
@@ -19,10 +20,10 @@ const FooterContainer = styled.div`
   }
 `;
 
-export default function Footer() {
+export default function Footer({answerCt}) {
   return (
     <FooterContainer>
-      <p>0/4 CONCLUÍDOS</p>
+      <p>{answerCt}/4 CONCLUÍDOS</p>
     </FooterContainer>
   );
 }

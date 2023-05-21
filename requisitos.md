@@ -2,19 +2,19 @@
 
 - Geral
   
-  - [ ] Manipule o HTML usando somente React (sem usar o document, nem o localStorage, ****nem bibliotecas React, JavaScript e/ou CSS).
-  - [ ] Todo o armazenamento de informações deve ser feito via estados.
-  - [ ] Seu projeto deverá ser desenvolvido utilizando Git e GitHub.
-  - [ ] A cada requisito implementado faça um *commit* com uma mensagem descritiva do que você evoluiu. Caso queira dividir um requisito em vários *commits*, não há problema. Mas evite colocar mais de um requisito no mesmo *commit*.
-  - [ ] Nesse projeto, a estilização deve ser feita com styled-components obrigatoriamente.
+  - [x] Manipule o HTML usando somente React (sem usar o document, nem o localStorage, ****nem bibliotecas React, JavaScript e/ou CSS).
+  - [x] Todo o armazenamento de informações deve ser feito via estados.
+  - [x] Seu projeto deverá ser desenvolvido utilizando Git e GitHub.
+  - [x] A cada requisito implementado faça um *commit* com uma mensagem descritiva do que você evoluiu. Caso queira dividir um requisito em vários *commits*, não há problema. Mas evite colocar mais de um requisito no mesmo *commit*.
+  - [x] Nesse projeto, a estilização deve ser feita com styled-components obrigatoriamente.
   - [ ] O *deploy* da aplicação utilizando Vercel também é obrigatório.
-  - [ ] *Não é permitido o uso de `Context` nem de `Router`!*
+  - [x] *Não é permitido o uso de `Context` nem de `Router`!*
 
 - *Layout*
   
-  - [ ] Aplicar *layout* seguindo o Figma.
+  - [x] Aplicar *layout* seguindo o Figma.
   
-  - [ ] Você pode usar o *deck* que desejar, temos aqui o exemplo de um *deck* sobre React:
+  - [x] Você pode usar o *deck* que desejar, temos aqui o exemplo de um *deck* sobre React:
     
     1. **Q:** O que é JSX? **R:** Uma extensão de linguagem do JavaScript
     
@@ -46,12 +46,12 @@
       ]
       ```
   
-  - [ ] Use as fontes indicadas no Layout do Figma.
+  - [x] Use as fontes indicadas no Layout do Figma.
 
 - Componentização e dados
   
-  - [ ] Os elementos da página devem ser componentizados com React em arquivos separados.
-  - [ ] Os dados dinâmicos da página (como o *deck*, *flashcards*, etc) devem ser representados como *arrays* ou objetos no JavaScript e renderizados na tela.
+  - [x] Os elementos da página devem ser componentizados com React em arquivos separados.
+  - [x] Os dados dinâmicos da página (como o *deck*, *flashcards*, etc) devem ser representados como *arrays* ou objetos no JavaScript e renderizados na tela.
 
 - *Flashcards*
   
