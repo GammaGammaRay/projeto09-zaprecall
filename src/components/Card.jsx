@@ -65,15 +65,22 @@ function CardHolder({ index, cardState }) {
   if (cardState === "unanswered") {
     return (
       <>
-        <h1 data-test="flashcard-text" >Pergunta {index}</h1>
-        <img data-test="play-btn" src="src/assets/seta_play.png" alt="icon-play" />
+        <h1 data-test="flashcard-text">Pergunta {index}</h1>
+        <img
+          data-test="play-btn"
+          src="src/assets/seta_play.png"
+          alt="icon-play"
+        />
       </>
     );
   }
   if (cardState === "wrong") {
     return (
       <>
-        <h1 data-test="flashcard-text"  style={{ color: "#FF3030", textDecoration: "line-through" }}>
+        <h1
+          data-test="flashcard-text"
+          style={{ color: "#FF3030", textDecoration: "line-through" }}
+        >
           Pergunta {index}
         </h1>
         <img
@@ -87,7 +94,10 @@ function CardHolder({ index, cardState }) {
   if (cardState === "almost") {
     return (
       <>
-        <h1 data-test="flashcard-text"  style={{ color: "#FF922E", textDecoration: "line-through" }}>
+        <h1
+          data-test="flashcard-text"
+          style={{ color: "#FF922E", textDecoration: "line-through" }}
+        >
           Pergunta {index}
         </h1>
         <img
@@ -101,7 +111,10 @@ function CardHolder({ index, cardState }) {
   if (cardState === "correct") {
     return (
       <>
-        <h1 data-test="flashcard-text"  style={{ color: "#2FBE34", textDecoration: "line-through" }}>
+        <h1
+          data-test="flashcard-text"
+          style={{ color: "#2FBE34", textDecoration: "line-through" }}
+        >
           Pergunta {index}
         </h1>
         <img
@@ -128,7 +141,7 @@ function AnswerButtons({ handleAnswer, setCardState }) {
         Não lembrei
       </AnswerButton>
       <AnswerButton
-      data-test="partial-btn"
+        data-test="partial-btn"
         color="#FF922E"
         onClick={() => {
           handleAnswer(1);
@@ -138,7 +151,7 @@ function AnswerButtons({ handleAnswer, setCardState }) {
         Quase não lembrei
       </AnswerButton>
       <AnswerButton
-      data-test="zap-btn"
+        data-test="zap-btn"
         color="#2FBE34"
         onClick={() => {
           handleAnswer(2);
@@ -161,8 +174,8 @@ function CardActive({ question, answer, handleAnswer, setCardState }) {
   return (
     <>
       {showAnswer ? (
-        <AnswerCard >
-          <h1 data-test="flashcard-text" >{answer}</h1>
+        <AnswerCard data-test="flashcard">
+          <h1 data-test="flashcard-text">{answer}</h1>
           <AnswerButtons
             handleAnswer={handleAnswer}
             setCardState={setCardState}
@@ -170,6 +183,7 @@ function CardActive({ question, answer, handleAnswer, setCardState }) {
         </AnswerCard>
       ) : (
         <div
+          data-test="flashcard"
           style={{
             alignItems: "center",
             display: "flex",
