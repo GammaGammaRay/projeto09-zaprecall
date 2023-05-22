@@ -66,7 +66,7 @@ function CardHolder({ index, cardState }) {
     return (
       <>
         <h1 data-test="flashcard-text" >Pergunta {index}</h1>
-        <img src="src/assets/seta_play.png" alt="icon-play" />
+        <img data-test="play-btn" src="src/assets/seta_play.png" alt="icon-play" />
       </>
     );
   }
