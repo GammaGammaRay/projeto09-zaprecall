@@ -55,54 +55,97 @@ const AnswerButton = styled.button`
   background-color: ${({ color }) => color};
 `;
 
-function CardHolder({ index }) {
-  return (
-    <>
-      <h1>Pergunta {index}</h1>
-      <img src="src/assets/seta_play.png" alt="icon-play" />
-    </>
-  );
+function CardHolder({ index, cardState }) {
+  if (cardState === "unanswered") {
+    return (
+      <>
+        <h1>Pergunta {index}</h1>
+        <img src="src/assets/seta_play.png" alt="icon-play" />
+      </>
+    );
+  }
+  if (cardState === "wrong") {
+    return (
+      <>
+        <h1 style={{ color: "#FF3030", textDecoration: "line-through" }}>
+          Pergunta {index}
+        </h1>
+        <img src="src/assets/seta_play.png" alt="icon-play" />
+      </>
+    );
+  }
+  if (cardState === "almost") {
+    return (
+      <>
+        <h1 style={{ color: "#FF922E", textDecoration: "line-through" }}>
+          Pergunta {index}
+        </h1>
+        <img src="src/assets/seta_play.png" alt="icon-play" />
+      </>
+    );
+  }
+  if (cardState === "correct") {
+    return (
+      <>
+        <h1 style={{ color: "#2FBE34", textDecoration: "line-through" }}>
+          Pergunta {index}
+        </h1>
+        <img src="src/assets/seta_play.png" alt="icon-play" />
+      </>
+    );
+  }
 }
 
-
-function AnswerButtons({ setAnswerCt, setResult, result, answerCt }) {
-  function handleAnswer(opt) {
-    setAnswerCt((prevAnswerCt) => prevAnswerCt + 1);
-    setResult((prevResult) => [...prevResult, opt]);
-  }
-
-
+function AnswerButtons({ handleAnswer, setCardState }) {
   return (
     <AnswerBtnContainer>
-      <AnswerButton color="#FF3030" onClick={() => handleAnswer(0)}>
+      <AnswerButton
+        color="#FF3030"
+        onClick={() => {
+          handleAnswer(0);
+          setCardState("wrong");
+        }}
+      >
         Não lembrei
       </AnswerButton>
-      <AnswerButton color="#FF922E" onClick={() => handleAnswer(1)}>
+      <AnswerButton
+        color="#FF922E"
+        onClick={() => {
+          handleAnswer(1);
+          setCardState("almost");
+        }}
+      >
         Quase não lembrei
       </AnswerButton>
-      <AnswerButton color="#2FBE34" onClick={() => handleAnswer(2)}>
+      <AnswerButton
+        color="#2FBE34"
+        onClick={() => {
+          handleAnswer(2);
+          setCardState("correct");
+        }}
+      >
         Zap!
       </AnswerButton>
     </AnswerBtnContainer>
   );
 }
 
-
-
-function CardActive({ question, answer, setAnswerCt, answerCt, setResult }) {
+function CardActive({ question, answer, handleAnswer, setCardState }) {
   const [showAnswer, setShowAnswer] = useState(false);
 
   const toggleAnswer = () => {
     setShowAnswer(!showAnswer);
   };
 
-
   return (
     <>
       {showAnswer ? (
-        <AnswerCard>
+        <AnswerCard setCardState={setCardState}>
           <h1>{answer}</h1>
-          <AnswerButtons setAnswerCt={setAnswerCt} setResult={setResult} answerCt={answerCt} />
+          <AnswerButtons
+            handleAnswer={handleAnswer}
+            setCardState={setCardState}
+          />
         </AnswerCard>
       ) : (
         <>
@@ -118,25 +161,47 @@ function CardActive({ question, answer, setAnswerCt, answerCt, setResult }) {
   );
 }
 
+export default function Card({
+  card,
+  index,
+  active,
+  setAnswerCt,
+  setActive,
+  activeIndex,
+}) {
+  const [cardState, setCardState] = useState("unanswered");
 
-export default function Card({ card, index, active, setAnswerCt, result, setResult, onClick }) {
-  const handleAnswer = (opt) => {
+  const handleAnswer = () => {
     setAnswerCt((prevAnswerCt) => prevAnswerCt + 1);
-    setResult((prevResult) => [...prevResult, opt]);
+    setActive(0, () => {
+      console.log(active);
+    });
   };
 
+  useEffect(() => {
+    console.log(active);
+  }, [active]);
+
   return (
-    <CardDiv active={active} onClick={onClick} result={result}>
+    <CardDiv
+      active={active}
+      onClick={() => {
+        if (activeIndex === null) {
+          setActive(index);
+        }
+      }}
+    >
       {active ? (
         <CardActive
           question={card.question}
           answer={card.answer}
-          handleAnswer={handleAnswer}
           setAnswerCt={setAnswerCt}
-          setResult={setResult}
+          setActive={setActive}
+          handleAnswer={handleAnswer}
+          setCardState={setCardState}
         />
       ) : (
-        <CardHolder index={index} />
+        <CardHolder cardState={cardState} index={index} />
       )}
     </CardDiv>
   );

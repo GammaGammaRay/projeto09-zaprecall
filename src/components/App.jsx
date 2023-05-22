@@ -24,7 +24,8 @@ const Header = styled.div`
 export default function App() {
   const [answerCt, setAnswerCt] = useState(0);
   const [result, setResult] = useState([]);
-
+  console.log(result);
+  
   return (
     <>
       <Header>
@@ -37,9 +38,8 @@ export default function App() {
         result={result}
         setResult={setResult}
       />
-      <Footer answerCt={answerCt} />
+      <Footer answerCt={answerCt} result={result}/>
     </>
   );
 }
 
-function updateResults() {}

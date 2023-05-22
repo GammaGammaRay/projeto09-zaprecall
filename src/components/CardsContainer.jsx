@@ -14,12 +14,10 @@ const CardsContainer = styled.div`
 
 export default function Cards({ setAnswerCt, answerCt, result, setResult }) {
   const [activeIndex, setActiveIndex] = useState(null);
-
   const handleClick = (index) => {
     if(activeIndex === null) {
-
       setActiveIndex(index);
-    }
+    } else{setActiveIndex(null)}
   };
 
   return (
@@ -30,7 +28,8 @@ export default function Cards({ setAnswerCt, answerCt, result, setResult }) {
         card={card}
         index={index + 1}
         active={index + 1 === activeIndex}
-        onClick={() => handleClick(index + 1)}
+        setActive={() => handleClick(index + 1)}
+        activeIndex={activeIndex}
         setAnswerCt={setAnswerCt}
         answerCt={answerCt}
         result={result}
