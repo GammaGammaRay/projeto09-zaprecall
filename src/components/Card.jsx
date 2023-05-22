@@ -76,7 +76,11 @@ function CardHolder({ index, cardState }) {
         <h1 style={{ color: "#FF3030", textDecoration: "line-through" }}>
           Pergunta {index}
         </h1>
-        <img src="src/assets/seta_play.png" alt="icon-play" />
+        <img
+          data-test="no-icon"
+          src="src/assets/icone_erro.png"
+          alt="icon-wrong"
+        />
       </>
     );
   }
@@ -86,7 +90,11 @@ function CardHolder({ index, cardState }) {
         <h1 style={{ color: "#FF922E", textDecoration: "line-through" }}>
           Pergunta {index}
         </h1>
-        <img src="src/assets/seta_play.png" alt="icon-play" />
+        <img
+          data-test="partial-icon"
+          src="src/assets/icone_quase.png"
+          alt="icon-almost"
+        />
       </>
     );
   }
@@ -96,7 +104,11 @@ function CardHolder({ index, cardState }) {
         <h1 style={{ color: "#2FBE34", textDecoration: "line-through" }}>
           Pergunta {index}
         </h1>
-        <img src="src/assets/seta_play.png" alt="icon-play" />
+        <img
+          data-test="zap-icon"
+          src="src/assets/icone_certo.png"
+          alt="icon-correct"
+        />
       </>
     );
   }
@@ -106,6 +118,7 @@ function AnswerButtons({ handleAnswer, setCardState }) {
   return (
     <AnswerBtnContainer>
       <AnswerButton
+        data-test="no-btn"
         color="#FF3030"
         onClick={() => {
           handleAnswer(0);
@@ -115,6 +128,7 @@ function AnswerButtons({ handleAnswer, setCardState }) {
         Não lembrei
       </AnswerButton>
       <AnswerButton
+      data-test="partial-btn"
         color="#FF922E"
         onClick={() => {
           handleAnswer(1);
@@ -124,6 +138,7 @@ function AnswerButtons({ handleAnswer, setCardState }) {
         Quase não lembrei
       </AnswerButton>
       <AnswerButton
+      data-test="zap-btn"
         color="#2FBE34"
         onClick={() => {
           handleAnswer(2);
@@ -146,7 +161,7 @@ function CardActive({ question, answer, handleAnswer, setCardState }) {
   return (
     <>
       {showAnswer ? (
-        <AnswerCard setCardState={setCardState}>
+        <AnswerCard data-test="flashcard-text">
           <h1>{answer}</h1>
           <AnswerButtons
             handleAnswer={handleAnswer}
@@ -154,14 +169,22 @@ function CardActive({ question, answer, handleAnswer, setCardState }) {
           />
         </AnswerCard>
       ) : (
-        <>
+        <div
+          style={{
+            alignItems: "center",
+            display: "flex",
+            justifyContent: "space-between",
+            width: "100%",
+          }}
+        >
           <h1>{question}</h1>
           <img
             src="src/assets/seta_virar.png"
             alt="icon-flip"
+            data-test="turn-btn"
             onClick={toggleAnswer}
           />
-        </>
+        </div>
       )}
     </>
   );
@@ -175,13 +198,13 @@ export default function Card({
   setActive,
   activeIndex,
   result,
-  setResult
+  setResult,
 }) {
   const [cardState, setCardState] = useState("unanswered");
 
   const handleAnswer = (answer) => {
     setAnswerCt((prevAnswerCt) => prevAnswerCt + 1);
-    setResult([... result, answer])
+    setResult([...result, answer]);
     setActive(0, () => {
       console.log(active);
     });
@@ -193,6 +216,7 @@ export default function Card({
 
   return (
     <CardDiv
+      data-test="flashcard"
       active={active}
       onClick={() => {
         if (activeIndex === null && cardState === "unanswered") {

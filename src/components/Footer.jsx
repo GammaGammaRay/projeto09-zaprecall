@@ -55,33 +55,39 @@ const FooterResultDiv = styled.div`
     width: 80%;
     font-weight: 400;
   }
-  h1{
+  h1 {
     font-size: 18px;
     font-weight: 700;
-}
+  }
 `;
 
 const FooterResultDivTitle = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  img{
+  img {
     height: 18px;
     margin-right: 10px;
   }
-`
+`;
 function IconList({ result }) {
   return (
     <IconListDiv>
       {result.map((resultItem, index) => {
         if (resultItem === 0) {
           return (
-            <img key={index} src="src/assets/icone_erro.png" alt="icon-error" />
+            <img
+              key={index}
+              data-test="no-icon"
+              src="src/assets/icone_erro.png"
+              alt="icon-error"
+            />
           );
         }
         if (resultItem === 1) {
           return (
             <img
+              data-test="zap-icon"
               key={index}
               src="src/assets/icone_quase.png"
               alt="icon-almost"
@@ -91,6 +97,7 @@ function IconList({ result }) {
         if (resultItem === 2) {
           return (
             <img
+              data-test="partial-icon"
               key={index}
               src="src/assets/icone_certo.png"
               alt="icon-correct"
@@ -106,24 +113,20 @@ function IconList({ result }) {
 function FinalResult({ result }) {
   if (result.includes(2)) {
     return (
-      <FooterResultDiv>
+      <FooterResultDiv data-test="finish-text">
         <FooterResultDivTitle>
           <img src="src/assets/party.png" alt="party" />
-          <h1>
-          Parabéns!
-          </h1>
+          <h1>Parabéns!</h1>
         </FooterResultDivTitle>
-        <p>Ainda faltam alguns... Mas não desanime!</p>
+        <p>Você não esqueceu de nenhum flashcard!</p>
       </FooterResultDiv>
     );
   } else {
     return (
-      <FooterResultDiv>
+      <FooterResultDiv data-test="finish-text">
         <FooterResultDivTitle>
           <img src="src/assets/sad.png" alt="party" />
-          <h1>
-          Putz...
-          </h1>
+          <h1>Putz...</h1>
         </FooterResultDivTitle>
         <p>Você não esqueceu de nenhum flashcard!</p>
       </FooterResultDiv>
@@ -146,7 +149,7 @@ export default function Footer({ answerCt, cardArray, result }) {
     );
   }
   return (
-    <FooterContainer>
+    <FooterContainer data-test="footer">
       <p>
         {answerCt}/{cardArray.length} CONCLUÍDOS
       </p>
