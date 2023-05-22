@@ -27,6 +27,9 @@ const CardDiv = styled.div`
     margin-right: 16px;
     transform: scale(0.8);
   }
+  &:hover {
+    box-shadow: 5px 8px 8px rgba(0, 0, 0, 0.15);
+  }
 `;
 
 const AnswerCard = styled.div`
@@ -53,6 +56,9 @@ const AnswerButton = styled.button`
   width: 85px;
   height: 35px;
   background-color: ${({ color }) => color};
+  &:hover {
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  }
 `;
 
 function CardHolder({ index, cardState }) {
@@ -168,11 +174,14 @@ export default function Card({
   setAnswerCt,
   setActive,
   activeIndex,
+  result,
+  setResult
 }) {
   const [cardState, setCardState] = useState("unanswered");
 
-  const handleAnswer = () => {
+  const handleAnswer = (answer) => {
     setAnswerCt((prevAnswerCt) => prevAnswerCt + 1);
+    setResult([... result, answer])
     setActive(0, () => {
       console.log(active);
     });
@@ -186,7 +195,7 @@ export default function Card({
     <CardDiv
       active={active}
       onClick={() => {
-        if (activeIndex === null) {
+        if (activeIndex === null && cardState === "unanswered") {
           setActive(index);
         }
       }}

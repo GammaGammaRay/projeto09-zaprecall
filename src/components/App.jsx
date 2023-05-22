@@ -1,7 +1,10 @@
 import { useState } from "react";
+import React from "react";
 import Cards from "./CardsContainer";
 import Footer from "./Footer";
 import styled from "styled-components";
+import cardArray from "../cardArray";
+import WelcomeScreen from "./WelcomeScreen";
 
 const Header = styled.div`
   width: 100%;
@@ -21,25 +24,33 @@ const Header = styled.div`
   }
 `;
 
+
 export default function App() {
   const [answerCt, setAnswerCt] = useState(0);
   const [result, setResult] = useState([]);
+  const [welcome, setWelcome] = useState(false);
   console.log(result);
-  
+
   return (
     <>
-      <Header>
-        <img src="src/assets/logo.png" alt="zap logo" />
-        <h1>ZapRecall</h1>
-      </Header>
-      <Cards
-        setAnswerCt={setAnswerCt}
-        answerCt={answerCt}
-        result={result}
-        setResult={setResult}
-      />
-      <Footer answerCt={answerCt} result={result}/>
+      {welcome ? (
+        <React.Fragment>
+          <Header>
+            <img src="src/assets/logo.png" alt="zap logo" />
+            <h1>ZapRecall</h1>
+          </Header>
+          <Cards
+            cardArray={cardArray}
+            setAnswerCt={setAnswerCt}
+            answerCt={answerCt}
+            result={result}
+            setResult={setResult}
+          />
+          <Footer cardArray={cardArray} answerCt={answerCt} result={result} />
+        </React.Fragment>
+      ) : (
+        <WelcomeScreen welcome={welcome} setWelcome={setWelcome} />
+      )}
     </>
   );
 }
-

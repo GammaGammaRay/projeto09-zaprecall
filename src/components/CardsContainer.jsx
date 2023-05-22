@@ -10,9 +10,10 @@ const CardsContainer = styled.div`
   align-items: center;
   color: #333333;
   margin-bottom: 100px;
+  
 `;
 
-export default function Cards({ setAnswerCt, answerCt, result, setResult }) {
+export default function Cards({ setAnswerCt, answerCt, result, setResult, cardArray }) {
   const [activeIndex, setActiveIndex] = useState(null);
   const handleClick = (index) => {
     if(activeIndex === null) {

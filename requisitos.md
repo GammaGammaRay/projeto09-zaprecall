@@ -55,23 +55,23 @@
 
 - *Flashcards*
   
-  - [ ] Deverá existir 8 *flashcards*.
-  - [ ] Todos os *flashcards* devem aparecer na tela virados e indexados por números (ex: Pergunta 1, Pergunta 2), de modo a “esconder” o termo ou pergunta que ele contém.
-  - [ ] Ao clicar na setinha de “play” de um *flashcard*, a pergunta ou termo correspondente ao *flashcard* deve aparecer (não é necessária nenhuma animação).
-  - [ ] Para ver a resposta do *flashcard*, o usuário deve clicar no ícone de “virar” (o componente é o mesmo, apenas teve seu *layout* adaptado).
+  - [x] Deverá existir 8 *flashcards*.
+  - [x] Todos os *flashcards* devem aparecer na tela virados e indexados por números (ex: Pergunta 1, Pergunta 2), de modo a “esconder” o termo ou pergunta que ele contém.
+  - [x] Ao clicar na setinha de “play” de um *flashcard*, a pergunta ou termo correspondente ao *flashcard* deve aparecer (não é necessária nenhuma animação).
+  - [x] Para ver a resposta do *flashcard*, o usuário deve clicar no ícone de “virar” (o componente é o mesmo, apenas teve seu *layout* adaptado).
     - Ao virar um *flashcard*...
-      - [ ] O usuário deve visualizar a resposta correta para a pergunta e os três botões (Não lembrei, Quase não lembrei ou Zap).
-      - [ ] Ao clicar em qualquer um dos botões, o *flashcard* deverá ser dado como respondido e terá seu status alterado para refletir a escolha do usuário:
+      - [x] O usuário deve visualizar a resposta correta para a pergunta e os três botões (Não lembrei, Quase não lembrei ou Zap).
+      - [x] Ao clicar em qualquer um dos botões, o *flashcard* deverá ser dado como respondido e terá seu status alterado para refletir a escolha do usuário:
         - *Flashcard* incorreto (Não lembrei)
         - *Flashcard* correto com esforço (Quase não lembrei)
         - *Flashcard* correto imediatamente (Zap!)
-      - [ ] Depois de respondida, a pergunta deverá ficar fechada e seu texto tachado com a cor correta correspondente ao seu status e um ícone. Ela não poderá ser aberta novamente.
+      - [x] Depois de respondida, a pergunta deverá ficar fechada e seu texto tachado com a cor correta correspondente ao seu status e um ícone. Ela não poderá ser aberta novamente.
 
 - Contador de conclusão
   
-  - [ ] O contador deve mostrar quantas perguntas o usuário já respondeu e quantas perguntas há no total.
-  - [ ] Sempre que uma carta for respondida (clique nos botões), o número de flashcards respondidos deve ser atualizado.
-  - [ ] O número de flashcards respondidos nunca pode ser maior do que o número total.
+  - [x] O contador deve mostrar quantas perguntas o usuário já respondeu e quantas perguntas há no total.
+  - [x] Sempre que uma carta for respondida (clique nos botões), o número de flashcards respondidos deve ser atualizado.
+  - [x] O número de flashcards respondidos nunca pode ser maior do que o número total.
 
 - *Deploy*
   
