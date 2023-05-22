@@ -65,7 +65,7 @@ function CardHolder({ index, cardState }) {
   if (cardState === "unanswered") {
     return (
       <>
-        <h1>Pergunta {index}</h1>
+        <h1 data-test="flashcard-text" >Pergunta {index}</h1>
         <img src="src/assets/seta_play.png" alt="icon-play" />
       </>
     );
@@ -73,7 +73,7 @@ function CardHolder({ index, cardState }) {
   if (cardState === "wrong") {
     return (
       <>
-        <h1 style={{ color: "#FF3030", textDecoration: "line-through" }}>
+        <h1 data-test="flashcard-text"  style={{ color: "#FF3030", textDecoration: "line-through" }}>
           Pergunta {index}
         </h1>
         <img
@@ -87,7 +87,7 @@ function CardHolder({ index, cardState }) {
   if (cardState === "almost") {
     return (
       <>
-        <h1 style={{ color: "#FF922E", textDecoration: "line-through" }}>
+        <h1 data-test="flashcard-text"  style={{ color: "#FF922E", textDecoration: "line-through" }}>
           Pergunta {index}
         </h1>
         <img
@@ -101,7 +101,7 @@ function CardHolder({ index, cardState }) {
   if (cardState === "correct") {
     return (
       <>
-        <h1 style={{ color: "#2FBE34", textDecoration: "line-through" }}>
+        <h1 data-test="flashcard-text"  style={{ color: "#2FBE34", textDecoration: "line-through" }}>
           Pergunta {index}
         </h1>
         <img
@@ -161,8 +161,8 @@ function CardActive({ question, answer, handleAnswer, setCardState }) {
   return (
     <>
       {showAnswer ? (
-        <AnswerCard data-test="flashcard-text">
-          <h1>{answer}</h1>
+        <AnswerCard >
+          <h1 data-test="flashcard-text" >{answer}</h1>
           <AnswerButtons
             handleAnswer={handleAnswer}
             setCardState={setCardState}
@@ -177,7 +177,7 @@ function CardActive({ question, answer, handleAnswer, setCardState }) {
             width: "100%",
           }}
         >
-          <h1>{question}</h1>
+          <h1 data-test="flashcard-text">{question}</h1>
           <img
             src="src/assets/seta_virar.png"
             alt="icon-flip"
